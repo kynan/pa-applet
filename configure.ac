@@ -2,6 +2,9 @@ AC_PREREQ(2.59c)
 
 AC_INIT([pa-applet], [1.0.0], [], [pa-applet])
 
+AC_ARG_VAR([MAX_VOLUME], [Maximum volume])
+AC_DEFINE_UNQUOTED([MAX_VOLUME], [${MAX_VOLUME:-100.0}], [Maximum volume])
+
 AC_CONFIG_HEADERS([config.h])
 AM_INIT_AUTOMAKE([foreign])
 

@@ -199,10 +199,8 @@ static void sink_info_cb(pa_context *c, const pa_sink_info *info, int eol, void 
 
     // Update the audio status
     pa_volume_t volume = pa_cvolume_avg(&(info->volume));
-    if (volume > PA_VOLUME_NORM)
-        volume = PA_VOLUME_NORM;
     audio_status *as = shared_audio_status();
-    as->volume = volume * 100.0 / PA_VOLUME_NORM;
+    as->volume = volume * 100 / PA_VOLUME_NORM;
     as->muted = info->mute ? TRUE : FALSE;
 
     // Update the tray icon and the volume scale

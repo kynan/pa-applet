@@ -9,6 +9,8 @@
 
 #define STATUS_STEP_SIZE 5.0
 
+#include "config.h"
+
 #include "audio_status.h"
 
 audio_status status;
@@ -40,8 +42,8 @@ static void profile_destroy(gpointer *data)
 void audio_status_raise_volume(void)
 {
     status.volume += STATUS_STEP_SIZE;
-    if (status.volume > 100.0)
-        status.volume = 100.0;
+    if (status.volume > MAX_VOLUME)
+        status.volume = MAX_VOLUME;
 }
 
 void audio_status_lower_volume(void)
